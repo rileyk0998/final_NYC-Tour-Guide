@@ -1,0 +1,13 @@
+#app {
+  width: 100vw;
+  height: 100vh;
+}
+
+.content {
+  display: none !important;
+}
+
+.view {
+  width: 100vw;
+  height: 100vh;
+}
