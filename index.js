@@ -4,6 +4,7 @@ function ready() {
   console.log("DOM Ready!")
 
   const app = $("#app");
+  const appContainer = $(".app-container");
   const views = [...document.querySelectorAll(".view")];
 
   let currentView = 0;
@@ -22,10 +23,6 @@ function ready() {
 
     if (!thisView) return;
 
-    app.html($(thisView).html());
-
-    Object.keys(thisView.style).forEach(key => {
-      app.css(key, thisView.style[key])
-    })
+    appContainer.html($(thisView).html());
   })
 }
