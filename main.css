@@ -1,6 +1,6 @@
 #app {
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
   width: 100vw;
 }
@@ -12,7 +12,7 @@
 }
 
 .app-bg-dimmer,
-.app-bg img,
+.app-bg-img,
 .app-content {
   position: absolute;
 }
@@ -30,7 +30,6 @@
   transition: background 0.1s linear;
   transform: translateX(-50%);
   width: 64px;
-  z-index: 9999;
 }
 
 .nav-toggler:hover {
@@ -71,6 +70,7 @@
   color: black;
   font-size: 36px;
   font-weight: 800;
+  margin: 5px 0;
   text-decoration: none;
 }
 
@@ -81,28 +81,26 @@
 
 .app-bg-dimmer {
   background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
-  border: 5px solid white;
+  border: 10px solid white;
   height: inherit;
   transition: border-width 0.2s ease-in-out;
   user-select: none;
   width: inherit;
 }
 
-.app-bg img {
-  width: inherit;
+.app-bg-img {
+  background-size: cover;
+  background-repeat: no-repeat;
   height: inherit;
   filter: blur(5px) saturate(75%);
+  transition: background 0.2s ease-in-out;
+  width: inherit;
 }
 
 .app-content {
   justify-content: space-evenly !important;
+  padding-top: 64px;
   width: inherit;
-}
-
-@media only screen and (max-width: 1200px) {
-  .app-content {
-    padding-top: 128px;
-  }
 }
 
 .content-info {
