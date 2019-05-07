@@ -51,22 +51,19 @@
 }
 
 .nav-wrapper {
-  min-height: 440px;
-  height: 40%;
-  position: absolute;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s cubic-bezier(0.23, 1, 0.32, 1);
   width: inherit;
 }
 
-@media only screen and (max-width: 1200px) {
-  .nav-wrapper {
-
-  }
+.nav-opened {
+  padding-top: 72px;
+  height: 40%;
 }
 
 .app-nav {
   justify-content: space-evenly !important;
-  position: absolute;
-  height: auto;
   width: inherit;
 }
 
@@ -84,16 +81,11 @@
 
 .app-bg-dimmer {
   background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+  border: 5px solid white;
   height: inherit;
+  transition: border-width 0.2s ease-in-out;
   user-select: none;
   width: inherit;
-}
-
-@media only screen and (min-width: 768px) {
-  .app-bg-dimmer {
-    border: 10px solid white;
-    transition: border-width 0.2s ease-in-out;
-  }
 }
 
 .app-bg img {
