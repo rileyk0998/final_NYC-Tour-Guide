@@ -1,25 +1,20 @@
 #app {
   height: 100vh;
+  overflow: hidden;
+  position: relative;
   width: 100vw;
 }
 
 .app-container {
   height: inherit;
+  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
   width: inherit;
 }
 
-.app-header,
 .app-bg-dimmer,
 .app-bg img,
 .app-content {
   position: absolute;
-}
-
-.app-header {
-  height: 128px;
-  margin-top: 10px;
-  width: inherit;
-  z-index: 9999;
 }
 
 .nav-toggler {
@@ -28,9 +23,14 @@
   color: white;
   cursor: pointer;
   height: 64px;
+  top: 44px;
+  left: 50%;
   padding: 0;
+  position: absolute;
   transition: background 0.1s linear;
+  transform: translateX(-50%);
   width: 64px;
+  z-index: 9999;
 }
 
 .nav-toggler:hover {
@@ -50,8 +50,31 @@
   width: 56px;
 }
 
+.nav-wrapper {
+  min-height: 440px;
+  height: 40%;
+  position: absolute;
+  width: inherit;
+}
+
+@media only screen and (max-width: 1200px) {
+  .nav-wrapper {
+
+  }
+}
+
 .app-nav {
-  /* max-width; */
+  justify-content: space-evenly !important;
+  position: absolute;
+  height: auto;
+  width: inherit;
+}
+
+.app-nav a {
+  color: black;
+  font-size: 36px;
+  font-weight: 800;
+  text-decoration: none;
 }
 
 .app-bg {
@@ -135,31 +158,35 @@
 }
 
 @media only screen and (max-width: 576px) {
-  .content-info p {
+  .content-info p,
+  .app-nav a {
     font-size: 20px;
   }
 }
 
 @media only screen and (min-width: 576px) {
-  .content-info p {
+  .content-info p,
+  .app-nav a {
     font-size: 28px;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .content-info p {
+  .content-info p,
+  .app-nav a {
     font-size: 32px;
   }
 }
 
 @media only screen and (min-width: 992px) {
-  .content-info p {
+  .content-info p,
+  .app-nav a {
     font-size: 36px;
   }
 }
 
 .content-media img {
-  border: 5px solid white;
+  border: 1px solid white;
   box-shadow: 5px 5px 15px 4px;
   height: inherit;
   width: inherit;
