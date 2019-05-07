@@ -1,28 +1,13 @@
-$(ready.bind(this))
+// const appContainer = $(".app-container");
+const bgDimmer = $(".app-bg-dimmer");
 
-function ready() {
-  console.log("DOM Ready!")
+$(".nav-toggler")
+  .hover(() => bgDimmer.css("border-width", "75px 50px"))
+  .mouseleave(() => bgDimmer.css("border-width", "10px"))
+  .click(function() {
 
-  const app = $("#app");
-  const appContainer = $(".app-container");
-  const views = [...document.querySelectorAll(".view")];
+  });
 
-  let currentView = 0;
+$(".app-container").scroll(function(scrollEvent) {
 
-  app.bind("wheel", (wheelEvent) => {
-    const { deltaY } = wheelEvent.originalEvent;
-
-    if (
-      (deltaY > 0 && currentView >= views.length) ||
-      (deltaY < 0 && currentView < 0)
-    ) return;
-
-    deltaY >= 0 ? currentView++ : currentView--;
-
-    const thisView = views[currentView];
-
-    if (!thisView) return;
-
-    appContainer.html($(thisView).html());
-  })
-}
+});
