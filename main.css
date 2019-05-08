@@ -6,14 +6,18 @@
 }
 
 .app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   height: inherit;
   transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
   width: inherit;
 }
 
 .app-bg-dimmer,
-.app-bg-img,
-.app-content {
+.app-bg-img
+/* .app-content { */ {
   position: absolute;
 }
 
@@ -30,6 +34,7 @@
   transition: background 0.1s linear;
   transform: translateX(-50%);
   width: 64px;
+  z-index: 9999;
 }
 
 .nav-toggler:hover {
@@ -50,6 +55,10 @@
 }
 
 .nav-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   height: 0;
   overflow: hidden;
   transition: height 0.35s cubic-bezier(0.23, 1, 0.32, 1);
@@ -57,13 +66,25 @@
 }
 
 .nav-opened {
-  padding-top: 72px;
-  height: 40%;
+  height: 30%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .nav-opened {
+    height: 50%;
+  }
 }
 
 .app-nav {
   justify-content: space-evenly !important;
+  margin: auto;
   width: inherit;
+}
+
+@media only screen and (max-width: 1200px) {
+  .app-nav {
+    margin: 0 0 auto 0;
+  }
 }
 
 .app-nav a {
@@ -76,6 +97,7 @@
 
 .app-bg {
   height: inherit;
+  position: absolute;
   width: inherit;
 }
 
@@ -97,10 +119,17 @@
   width: inherit;
 }
 
+.app-spacer {
+  min-height: 128px;
+  width: inherit;
+}
+
 .app-content {
   justify-content: space-evenly !important;
-  padding-top: 64px;
+  margin: auto 0;
+  padding: 0 64px;
   width: inherit;
+  z-index: 9999;
 }
 
 .content-info {
@@ -144,6 +173,9 @@
 
 .content-info p {
   font-size: 36px;
+  max-height: 256px;
+  max-width: 992px;
+  /* padding: 25px 35px; */
   text-align: center;
 }
 
@@ -178,29 +210,10 @@
 .content-media img {
   border: 1px solid white;
   box-shadow: 5px 5px 15px 4px;
-  height: inherit;
-  width: inherit;
-}
-
-@media only screen and (max-width: 576px) {
-  .content-media img {
-    height: 256px;
-    width: 256px;
-  }
-}
-
-@media only screen and (min-width: 576px) {
-  .content-media img {
-    height: 384px;
-    width: 384px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .content-media img {
-    height: 512px;
-    width: 512px;
-  }
+  min-height: 128px;
+  min-width: 128px;
+  height: 30vw;
+  width: 30vw;
 }
 
 /* UTILITY CLASSES */
