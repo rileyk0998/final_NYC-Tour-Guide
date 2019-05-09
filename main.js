@@ -21,6 +21,7 @@ function ready() {
     .click(() => $(".nav-wrapper").toggleClass("nav-opened"));
 
   $(".app-container").bind("wheel", (wheelEvent) => {
+    console.log(wheelEvent)
     const { deltaY } = wheelEvent.originalEvent;
     const update = () => fadeOut(".app-content", "fast")
       .then(() => {
