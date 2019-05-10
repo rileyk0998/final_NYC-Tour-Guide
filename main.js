@@ -1,7 +1,7 @@
 $(ready);
 
 function ready() {
-  const bgDimmer = $(".app-bg-dimmer");
+  const frame = $(".app-frame");
   const templates = $("#templates").children();
 
   const fadeOut = (selector, speed) => new Promise((resolve) => $(selector).fadeOut(speed, resolve));
@@ -13,10 +13,10 @@ function ready() {
 
   $(".nav-toggler")
     .hover(() => {
-      if (screen.width >= 768) bgDimmer.css("border-width", "75px 50px")
+      if (screen.width >= 768) frame.css("border-width", "75px 50px")
     })
     .mouseleave(() => {
-      if (screen.width >= 768) bgDimmer.css("border-width", "10px")
+      if (screen.width >= 768) frame.css("border-width", "10px")
     })
     .click(() => $(".nav-wrapper").toggleClass("nav-opened"));
 
@@ -37,6 +37,10 @@ function ready() {
       update()
     }
   })
+}
+
+function preloadImages() {
+  
 }
 
 function setView(template) {

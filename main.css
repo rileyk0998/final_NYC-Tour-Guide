@@ -1,8 +1,14 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
 #app {
-  height: 100vh;
+  height: inherit;
   overflow-x: hidden;
   position: relative;
-  width: 100vw;
+  width: inherit;
 }
 
 .app-container {
@@ -11,6 +17,8 @@
   justify-content: flex-start;
   align-items: center;
   height: inherit;
+  min-height: 384px;
+  position: absolute;
   transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
   width: inherit;
 }
@@ -40,7 +48,7 @@
   background: black;
 }
 
-.nav-toggler:hover > svg > path {
+.nav-toggler:hover>svg>path {
   fill: white;
 }
 
@@ -80,12 +88,6 @@
   width: inherit;
 }
 
-@media only screen and (max-width: 1200px) {
-  .app-nav {
-    margin: 0 0 auto 0;
-  }
-}
-
 .app-nav a {
   color: black;
   font-size: 36px;
@@ -102,9 +104,7 @@
 
 .app-bg-dimmer {
   background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
-  border: 10px solid white;
   height: inherit;
-  transition: border-width 0.2s ease-in-out;
   user-select: none;
   width: inherit;
 }
@@ -119,8 +119,14 @@
 }
 
 .app-spacer {
-  min-height: 128px;
+  min-height: 156px;
   width: inherit;
+}
+
+@media only screen and (max-width: 576px) {
+  .app-spacer {
+    min-height: 128px;
+  }
 }
 
 .app-content {
@@ -128,7 +134,13 @@
   margin: auto 0;
   padding: 0 24px;
   width: inherit;
-  z-index: 9999;
+  z-index: 1;
+}
+
+@media only screen and (min-width: 992px) {
+  .app-content {
+    min-height: 512px;
+  }
 }
 
 .content-info {
@@ -172,7 +184,7 @@
 
 .content-info p {
   max-height: 256px;
-  max-width: 992px;
+  max-width: 784px;
   margin: 25px 0;
   text-align: center;
 }
@@ -214,7 +226,29 @@
   width: 30vw;
 }
 
+@media only screen and (max-height: 384px), (max-width: 256px) {
+  .content-media img {
+    display: none;
+  }
+}
+
+.app-frame {
+  border: 10px solid white;
+  height: 100%;
+  position: absolute;
+  transition: border-width 0.2s ease-in-out;
+  width: 100%;
+  z-index: 2;
+}
+
+@media only screen and (max-height: 384px) {
+  .app-frame {
+    display: none;
+  }
+}
+
 /* UTILITY CLASSES */
+
 .flex-col-center {
   align-items: center;
   display: flex;
@@ -239,6 +273,7 @@
 }
 
 /* RESET */
+
 button {
   outline: none !important;
 }
