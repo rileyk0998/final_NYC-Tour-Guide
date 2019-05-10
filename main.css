@@ -173,6 +173,7 @@
 .content-info p {
   max-height: 256px;
   max-width: 992px;
+  margin: 25px 0;
   text-align: center;
 }
 
@@ -209,7 +210,7 @@
   /*box-shadow: 5px 5px 15px 4px;*/
   min-height: 128px;
   min-width: 128px;
-  height: 30vw;
+  height: 25vw;
   width: 30vw;
 }
 
