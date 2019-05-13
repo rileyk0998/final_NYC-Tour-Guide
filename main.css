@@ -6,6 +6,7 @@ body {
 
 #app {
   height: inherit;
+  min-height: 480px;
   overflow-x: hidden;
   position: relative;
   width: inherit;
@@ -88,6 +89,12 @@ body {
   width: inherit;
 }
 
+@media only screen and (min-width: 576px) {
+  .app-nav {
+    flex-direction: row !important;
+  }
+}
+
 .app-nav a {
   color: black;
   font-size: 36px;
@@ -114,6 +121,8 @@ body {
   background-repeat: no-repeat;
   height: inherit;
   filter: blur(5px) saturate(75%);
+  /* hides bad edges from blurring by making it a little smaller */
+  transform: scale(0.98);
   transition: background 0.2s ease-in-out;
   width: inherit;
 }
@@ -219,7 +228,7 @@ body {
 
 .content-media img {
   border: 1px solid white;
-  /*box-shadow: 5px 5px 15px 4px;*/
+  box-shadow: 5px 5px 15px 4px;
   min-height: 128px;
   min-width: 128px;
   height: 25vw;
