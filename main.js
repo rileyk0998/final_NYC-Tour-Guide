@@ -21,7 +21,6 @@ function ready() {
     .click(() => $(".nav-wrapper").toggleClass("nav-opened"));
 
   frame.bind("wheel", (wheelEvent) => {
-    console.log(wheelEvent)
     const { deltaY } = wheelEvent.originalEvent;
     const update = () => fadeOut(".app-content", "fast")
       .then(() => {
@@ -37,10 +36,6 @@ function ready() {
       update()
     }
   })
-}
-
-function preloadImages() {
-  
 }
 
 function setView(template) {
