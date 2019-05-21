@@ -1,11 +1,9 @@
 $(ready);
 
 function ready() {
+  const appContent = $(".app-content");
   const frame = $(".app-frame");
   const templates = $("#templates").children();
-
-  const fadeOut = (selector, speed) => new Promise((resolve) => $(selector).fadeOut(speed, resolve));
-  const fadeIn = (selector, speed) => new Promise((resolve) => $(selector).fadeIn(speed, resolve));
 
   let currentTemplateIndex = 0;
 
@@ -20,22 +18,27 @@ function ready() {
     })
     .click(() => $(".nav-wrapper").toggleClass("nav-opened"));
 
-  frame.bind("wheel", (wheelEvent) => {
-    const { deltaY } = wheelEvent.originalEvent;
-    const update = () => fadeOut(".app-content", "fast")
-      .then(() => {
-        setView(templates[currentTemplateIndex])
-        fadeIn(".app-content", "fast")
-      });
+  frame.bind("wheel", ({ originalEvent }) => {
+    if (appContent.hasClass("animating")) return;
+
+    const { deltaY } = originalEvent;
 
     if (deltaY >= 0 && currentTemplateIndex < templates.length - 1) {
+      appContent.css("transform", "translateY(-100vh)").addClass("animating");
       currentTemplateIndex++;
-      update()
+      setTimeout(() => {
+        setView(templates[currentTemplateIndex])
+        appContent.css("transform", "translateY(0)").removeClass("animating");
+      }, 500)
     } else if (deltaY < 0 && currentTemplateIndex > 0) {
+      appContent.css("transform", "translateY(100vh)").addClass("animating");
       currentTemplateIndex--;
-      update()
+      setTimeout(() => {
+        setView(templates[currentTemplateIndex])
+        appContent.css("transform", "translateY(0)").removeClass("animating");
+      }, 500)
     }
-  })
+  });
 }
 
 function setView(template) {
